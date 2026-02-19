@@ -5,246 +5,294 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Voltura EcoEnergy</title>
 
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Swiper CSS for sliders -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+
+<!-- AOS CSS for scroll animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+
 <style>
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #ffffff;
+  margin:0;
+  font-family: 'Roboto', sans-serif;
   color: #333;
+  scroll-behavior: smooth;
 }
+a { text-decoration: none; color: inherit; }
 
 nav {
-  display: flex;
+  position: sticky;
+  top:0;
+  display:flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
+  align-items:center;
+  padding: 15px 50px;
   background: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
-
-nav img {
-  height: 50px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-
-nav ul li {
-  font-weight: bold;
-  color: #1E7D35;
-  cursor: pointer;
-}
+nav img { height:60px; }
+nav ul { list-style:none; display:flex; gap:30px; margin:0; padding:0; }
+nav ul li { font-weight:500; color:#333; cursor:pointer; transition:0.3s; }
+nav ul li:hover { color:#1E7D35; }
 
 .hero {
-  background: linear-gradient(rgba(30,125,53,0.8), rgba(30,125,53,0.8)),
-  url('https://images.unsplash.com/photo-1509395176047-4a66953fd231');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  padding: 120px 20px;
+  position:relative;
+  height:100vh;
+  overflow:hidden;
 }
+.hero video {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.hero-overlay {
+  position:absolute;
+  top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  color:white;
+  text-align:center;
+  padding:0 20px;
+}
+.hero-overlay h1 { font-size:48px; margin-bottom:20px; }
+.hero-overlay p { font-size:20px; margin-bottom:30px; }
+.hero-overlay button { 
+  padding:15px 35px; background:#1E1E1E; color:white; border:none; border-radius:5px; 
+  font-size:16px; cursor:pointer; transition:0.3s;
+}
+.hero-overlay button:hover { background:#2BB24C; }
 
-.hero h1 {
-  font-size: 38px;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 18px;
-  margin-bottom: 30px;
-}
-
-button {
-  background: #2BB24C;
-  border: none;
-  padding: 15px 30px;
-  color: white;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-section {
-  padding: 80px 40px;
-  text-align: center;
-}
-
-h2 {
-  color: #1E7D35;
-  margin-bottom: 30px;
-}
+section { padding:80px 50px; text-align:center; }
+h2 { color:#1E7D35; margin-bottom:40px; }
 
 .services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
 }
-
 .card {
-  background: #f9f9f9;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  background:#f9f9f9;
+  padding:25px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+  transition:0.3s;
 }
+.card:hover { transform:translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,0.1); }
+.card img { width:60px; margin-bottom:15px; }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
+.tiktok-gallery { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
 
-.gallery img {
-  width: 100%;
-  border-radius: 10px;
+.projects-gallery {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
 }
+.projects-gallery img { width:100%; border-radius:10px; transition:0.3s; cursor:pointer; }
+.projects-gallery img:hover { transform:scale(1.05); }
 
-.tiktok-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+.testimonials {
+  max-width:900px; margin:0 auto;
 }
+.testimonial-slide { background:#f1f1f1; padding:30px; border-radius:10px; }
+.testimonial-slide p { font-style:italic; margin-bottom:15px; }
+.testimonial-slide h4 { font-weight:700; }
 
-.contact {
-  background: #1E7D35;
-  color: white;
-}
+.counters { display:flex; justify-content:center; gap:50px; flex-wrap:wrap; margin-top:40px; }
+.counter { font-size:36px; font-weight:700; color:#1E7D35; }
 
-footer {
-  background: #0f4f23;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
+.contact { background:#1E1E1E; color:white; }
+.contact p { margin:10px 0; }
 
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: white;
-  padding: 15px;
-  border-radius: 50%;
-  font-size: 22px;
-  text-decoration: none;
-}
+footer { background:#0f4f23; color:white; padding:30px; text-align:center; }
+
+.whatsapp { position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:15px; border-radius:50%; font-size:22px; text-decoration:none; z-index:1000; display:flex; align-items:center; justify-content:center; }
+
+button.apply-btn { background:#1E1E1E; color:white; padding:12px 25px; border:none; border-radius:5px; cursor:pointer; transition:0.3s; }
+button.apply-btn:hover { background:#2BB24C; }
+
 </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
 <nav>
   <img src="logo.png" alt="Voltura Logo">
   <ul>
-    <li>Home</li>
-    <li>About</li>
-    <li>Services</li>
-    <li>Projects</li>
-    <li>Contact</li>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#sustainability">Sustainability</a></li>
+    <li><a href="#careers">Careers</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<div class="hero">
-  <h1>Sustainable Energy. Smart Solutions.</h1>
-  <p>Powering Homes, Businesses & Communities with Clean and Reliable Energy</p>
-  <a href="https://wa.me/2347065024570"><button>Get Free Consultation</button></a>
-</div>
-
-<section>
-  <h2>About Voltura EcoEnergy</h2>
-  <p>
-    Voltura EcoEnergy is a Nigerian clean energy company committed to delivering affordable,
-    sustainable, and innovative power solutions. We specialize in solar installations,
-    inverter systems, battery storage, CCTV security systems, and professional electrical wiring.
-  </p>
+<!-- HERO -->
+<section class="hero" id="home">
+  <video autoplay muted loop>
+    <source src="https://images.unsplash.com/video/solar-energy.mp4" type="video/mp4">
+    Your browser does not support HTML video.
+  </video>
+  <div class="hero-overlay" data-aos="fade-up">
+    <h1>Powering a Sustainable Future</h1>
+    <p>Voltura EcoEnergy delivers clean, reliable, and innovative energy solutions across Nigeria.</p>
+    <div>
+      <a href="https://wa.me/2347065024570"><button>Get Consultation</button></a>
+      <a href="#careers"><button style="margin-left:15px;">Join Our Team</button></a>
+    </div>
+  </div>
 </section>
 
-<section>
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Voltura EcoEnergy</h2>
+  <p>Voltura EcoEnergy is committed to powering homes, businesses, and communities with sustainable energy. We specialize in solar panels, inverters, batteries, CCTV systems, and professional electrical installations.</p>
+  <div class="counters">
+    <div class="counter" data-target="250">0</div>
+    <div class="counter" data-target="180">0</div>
+    <div class="counter" data-target="15">0</div>
+  </div>
+  <div style="display:flex; justify-content:center; gap:15px; margin-top:15px;">
+    <p><strong>Projects Completed</strong></p>
+    <p><strong>Happy Clients</strong></p>
+    <p><strong>Years in Operation</strong></p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
   <h2>Our Services</h2>
   <div class="services">
-    <div class="card">
+    <div class="card" data-aos="fade-up">
+      <img src="https://images.unsplash.com/photo-1581090700227-1e8a3d3b1c6e" alt="Solar Panels">
       <h3>Solar Installation</h3>
       <p>Residential and commercial solar systems, hybrid and off-grid solutions.</p>
     </div>
-    <div class="card">
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0" alt="Batteries">
       <h3>Inverters & Batteries</h3>
-      <p>High-performance inverters and reliable lithium battery storage systems.</p>
+      <p>High-performance inverters and reliable battery storage solutions.</p>
     </div>
-    <div class="card">
+    <div class="card" data-aos="fade-up" data-aos-delay="200">
+      <img src="https://images.unsplash.com/photo-1581090700227-1e8a3d3b1c6e" alt="CCTV Cameras">
       <h3>CCTV Installation</h3>
       <p>Smart surveillance systems for homes and corporate environments.</p>
     </div>
-    <div class="card">
+    <div class="card" data-aos="fade-up" data-aos-delay="300">
+      <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0" alt="Wiring">
       <h3>Electrical Wiring</h3>
       <p>Professional wiring solutions for new constructions and renovations.</p>
     </div>
   </div>
 </section>
 
-<section>
+<!-- PROJECTS -->
+<section id="projects">
   <h2>Our Projects</h2>
-  <p>See some of our real installations and work on TikTok:</p>
-
+  <p>See some of our installations on TikTok:</p>
   <div class="tiktok-gallery">
-    <!-- TikTok Video 1 -->
     <blockquote class="tiktok-embed"
       cite="https://www.tiktok.com/@voltura.ecoenergy/video/7556949047018343691"
       data-video-id="7556949047018343691"
-      style="max-width: 300px; min-width: 250px;">
-      <section></section>
-    </blockquote>
+      style="max-width: 300px; min-width: 250px;"><section></section></blockquote>
 
-    <!-- TikTok Video 2 -->
     <blockquote class="tiktok-embed"
       cite="https://www.tiktok.com/@voltura.ecoenergy/video/7556945536041913612"
       data-video-id="7556945536041913612"
-      style="max-width: 300px; min-width: 250px;">
-      <section></section>
-    </blockquote>
+      style="max-width: 300px; min-width: 250px;"><section></section></blockquote>
   </div>
-
   <p style="margin-top:20px;">
     View all projects on TikTok:  
     <a href="https://www.tiktok.com/@voltura.ecoenergy" target="_blank" style="color:#2BB24C; font-weight:bold;">@voltura.ecoenergy</a>
   </p>
 </section>
 
-<section>
+<!-- SUSTAINABILITY -->
+<section id="sustainability">
   <h2>Sustainability & Innovation</h2>
-  <p>
-    Voltura EcoEnergy is strategically positioned to expand into sustainable environmental
-    solutions including waste-to-energy and green innovation projects, contributing
-    to Nigeria’s clean energy transition and long-term environmental sustainability.
-  </p>
+  <p>We invest in sustainable energy solutions, waste-to-energy projects, and innovative clean technologies to shape a greener future for Nigeria and beyond.</p>
 </section>
 
-<section class="contact">
+<!-- CAREERS -->
+<section id="careers">
+  <h2>Careers at Voltura EcoEnergy</h2>
+  <p>Join our growing team of energy professionals. We are hiring engineers, sales, and operations staff who are passionate about sustainability.</p>
+  <button class="apply-btn" onclick="window.location.href='mailto:careers@volturaecoenergy.com';">Apply Now</button>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <h2>What Our Clients Say</h2>
+  <div class="swiper mySwiper testimonials">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide testimonial-slide">
+        <p>"Voltura EcoEnergy installed solar panels at our facility and the process was seamless."</p>
+        <h4>- Olumide A.</h4>
+      </div>
+      <div class="swiper-slide testimonial-slide">
+        <p>"Professional and reliable service from start to finish. Highly recommended!"</p>
+        <h4>- Ada E.</h4>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
   <h2>Contact Us</h2>
   <p>📞 07065024570</p>
   <p>💬 WhatsApp: 07065024570</p>
   <p>📧 info@volturaecoenergy.com</p>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <p>© 2026 Voltura EcoEnergy. All Rights Reserved.</p>
 </footer>
 
+<!-- WHATSAPP -->
 <a class="whatsapp" href="https://wa.me/2347065024570">💬</a>
 
+<!-- JS Libraries -->
 <script async src="https://www.tiktok.com/embed.js"></script>
-</body>
-</html><section>
-<h2>Why Choose Us?</h2>
-<p>Professional Installation | Transparent Pricing | After-Sales Support</p>
-</section>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
-<footer>
-<p>© 2026 Voltura EcoEnergy. All Rights Reserved.</p>
-</footer>
+<!-- JS Init -->
+<script>
+// AOS Animations
+AOS.init({duration:1000});
+
+// Counters Animation
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+  counter.innerText = '0';
+  const updateCounter = () => {
+    const target = +counter.getAttribute('data-target');
+    const c = +counter.innerText;
+    const increment = target / 100;
+    if(c < target) {
+      counter.innerText = `${Math.ceil(c + increment)}`;
+      setTimeout(updateCounter,20);
+    } else { counter.innerText = target; }
+  };
+  updateCounter();
+});
+
+// Swiper Testimonials
+var swiper = new Swiper(".mySwiper", {
+  loop:true,
+  pagination:{ el:".swiper-pagination", clickable:true },
+  autoplay:{ delay:4000 }
+});
+</script>
 
 </body>
 </html>
