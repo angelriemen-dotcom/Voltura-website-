@@ -3,38 +3,287 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Voltura EcoEnergy</title>
-
+<title>Voltura Eco Energy</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 
-body{
-  margin:0;
-  font-family:'Segoe UI', sans-serif;
-  color:#333;
-  scroll-behavior:smooth;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
 }
 
-/* GLOBAL CONTAINER */
-.container{
-  max-width:1100px;
-  margin:0 auto;
-  padding:0 20px;
-  text-align:center;
+body {
+  background: #0f172a;
+  color: #fff;
+  text-align: center;
 }
 
-/* NAVIGATION */
-nav{
-  position:fixed;
-  width:100%;
-  background:#fff;
-  box-shadow:0 2px 10px rgba(0,0,0,0.1);
-  padding:15px 0;
-  z-index:1000;
+section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
 }
-nav .container{
-  display:flex;
-  justify-content:center;
-  gap:30px;
+
+h1, h2, h3 {
+  margin-bottom: 20px;
+}
+
+p {
+  line-height: 1.8;
+  max-width: 850px;
+  margin: auto;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(0,0,0,0.8);
+  padding: 15px;
+  z-index: 1000;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #00e676;
+}
+
+/* HERO */
+
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero video.active {
+  opacity: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+/* STATS */
+
+.stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.stat h3 {
+  font-size: 2rem;
+  color: #00e676;
+}
+
+/* SERVICES GRID */
+
+.grid-3, .grid-2, .grid-4 {
+  display: grid;
+  gap: 30px;
+}
+
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+.card {
+  background: #1e293b;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+/* TESTIMONIALS */
+
+.testimonial {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+/* CONTACT */
+
+.contact p {
+  margin: 10px 0;
+}
+
+/* WHATSAPP BUTTON */
+
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: #fff;
+  padding: 15px 18px;
+  border-radius: 50%;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2rem; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero">Hero</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#sustainability">Sustainability</a>
+  <a href="#career">Career</a>
+  <a href="#testimonials">Testimonials</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="overlay"></div>
+
+  <video src="hero-solar-hologram.mp4" autoplay muted loop class="active"></video>
+  <video src="hero-solar-panels.mp4" autoplay muted loop></video>
+  <video src="hero-smart-home.mp4" autoplay muted loop></video>
+
+  <div class="hero-content">
+    <h1>Voltura Eco Energy</h1>
+    <p>Powering Africa with Clean, Reliable & Smart Solar Solutions</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Voltura</h2>
+  <p>
+  Voltura Eco Energy is a leading renewable energy and smart electrical solutions company with over 9 years of excellence in the industry. 
+  We have successfully completed more than 380 projects and proudly serve over 320 satisfied clients. 
+  Our expertise spans solar installations, inverter systems, smart home integration, CCTV surveillance, and advanced electrical wiring solutions.
+  </p>
+
+  <div class="stats">
+    <div class="stat"><h3>380+</h3><p>Projects Completed</p></div>
+    <div class="stat"><h3>9 Years</h3><p>In Operation</p></div>
+    <div class="stat"><h3>320+</h3><p>Happy Clients</p></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="grid-3">
+    <div class="card">Solar Panel Installation</div>
+    <div class="card">Inverter & Battery Systems</div>
+    <div class="card">CCTV Surveillance Systems</div>
+    <div class="card">Smart Home Automation</div>
+    <div class="card">Electrical Wiring & Maintenance</div>
+    <div class="card">Energy Consultation & Audits</div>
+  </div>
+</section>
+
+<!-- SUSTAINABILITY -->
+<section id="sustainability">
+  <h2>Sustainability & Innovation</h2>
+  <p>
+  Solar energy is transforming businesses and homes by eliminating dependence on unstable power supply and costly generators. 
+  By upgrading to solar systems, businesses reduce operational expenses, achieve energy independence, and contribute to environmental sustainability. 
+  Voltura Eco Energy is committed to reducing carbon emissions, protecting our climate, and delivering smart clean energy technologies that support a greener planet for future generations.
+  </p>
+</section>
+
+<!-- CAREER -->
+<section id="career">
+  <h2>Careers at Voltura</h2>
+  <p>
+  We train engineers, mentor technicians, and employ top professionals in renewable energy and electrical technology. 
+  Voltura offers referral bonuses, career development programs, and hands-on training to build the next generation of clean energy experts.
+  </p>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <h2>What Our Clients Say</h2>
+  <div class="grid-4">
+    <div class="testimonial">Excellent solar installation and support.</div>
+    <div class="testimonial">Professional team and timely delivery.</div>
+    <div class="testimonial">Reduced our generator costs significantly.</div>
+    <div class="testimonial">Outstanding customer service.</div>
+    <div class="testimonial">Reliable inverter systems.</div>
+    <div class="testimonial">Highly recommend Voltura.</div>
+    <div class="testimonial">Clean and neat installation work.</div>
+    <div class="testimonial">Very responsive support team.</div>
+    <div class="testimonial">Helped our business cut electricity costs.</div>
+    <div class="testimonial">Trusted energy partner.</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <p>Email: Volturaeco@gmail.com</p>
+  <p>Phone: +234 XXX XXX XXXX</p>
+  <p>Address: Your Office Address Here</p>
+</section>
+
+<a href="https://wa.me/234XXXXXXXXXX" class="whatsapp">💬</a>
+
+<script>
+const videos = document.querySelectorAll('.hero video');
+let index = 0;
+
+setInterval(() => {
+  videos[index].classList.remove('active');
+  index = (index + 1) % videos.length;
+  videos[index].classList.add('active');
+}, 5000);
+</script>
+
+</body>
+</html>  gap:30px;
 }
 nav a{
   color:#00A859;
