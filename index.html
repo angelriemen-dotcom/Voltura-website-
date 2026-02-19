@@ -8,7 +8,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 <style>
+/* GENERAL */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 body{background:#0f172a;color:#fff;text-align:center;overflow-x:hidden}
 section{padding:90px 20px;max-width:1100px;margin:auto}
@@ -17,7 +19,8 @@ p{line-height:1.8;max-width:850px;margin:auto}
 
 /* NAVIGATION */
 nav{
-position:fixed;top:0;width:100%;background:rgba(0,0,0,0.85);padding:15px;z-index:1000;display:flex;justify-content:space-between;align-items:center;
+  position:fixed;top:0;width:100%;background:rgba(0,0,0,0.85);padding:15px;
+  z-index:1000;display:flex;justify-content:space-between;align-items:center;
 }
 nav .logo{font-weight:700;font-size:1.2rem;color:#00e676}
 nav ul{display:flex;list-style:none;gap:15px;transition:all 0.3s ease;}
@@ -27,51 +30,32 @@ nav ul li a:hover{color:#00e676}
 .hamburger div{width:25px;height:3px;background:#fff}
 
 /* HERO */
-.hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero video{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s ease-in-out}
-.hero video.active{opacity:1}
-.overlay{position:absolute;width:100%;height:100%;background:rgba(0,0,0,0.65)}
-.hero-content{position:relative;z-index:2}
-.hero h1{font-size:3rem;font-weight:700;margin-bottom:10px}
-.hero p{font-size:1.2rem;margin-bottom:25px}
-.hero button{padding:12px 25px;border:none;background:#00e676;color:#000;font-weight:600;border-radius:6px;cursor:pointer;margin:5px;transition:0.3s}
-.hero button:hover{background:#00c853}
-
-/* STATS */
-.stats{display:flex;justify-content:center;flex-wrap:wrap;gap:40px;margin-top:40px}
-.stat h3{font-size:2.2rem;color:#00e676}
-
-/* GRID */
-.grid-3,.grid-4{display:grid;gap:30px}
-.grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-.grid-4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.card{background:#1e293b;padding:25px;border-radius:12px;transition:0.3s}
-.card:hover{transform:translateY(-5px)}
-
-/* TESTIMONIAL */
-.testimonial{background:#1e293b;padding:20px;border-radius:10px;font-size:0.95rem;transition:0.3s}
-.testimonial:hover{transform:translateY(-3px)}
-
-/* CONTACT */
-.contact p{margin:10px 0}
-
-/* WHATSAPP */
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px 18px;border-radius:50%;font-size:22px;text-decoration:none;z-index:1000;}
+.hero{height:100vh;position:relative;overflow:hidden}
+.hero video{width:100%;height:100%;object-fit:cover}
+.hero-overlay{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  text-align:center;color:#fff;font-weight:bold;text-shadow:2px 2px 10px rgba(0,0,0,0.7);
+  max-width:90%;padding:0 20px;z-index:2;
+}
+.hero-overlay h1{font-size:3rem;margin-bottom:10px;font-weight:700}
+.hero-overlay p{font-size:1.2rem;margin-bottom:25px}
+.hero-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap}
+.hero-buttons button{
+  padding:12px 25px;border:none;border-radius:6px;font-weight:600;cursor:pointer;margin:5px;
+  transition:0.3s;
+}
+.btn-primary{background:#00A859;color:#fff}
+.btn-primary:hover{background:#007f45}
+.btn-secondary{background:#fff;color:#00A859;border:2px solid #00A859}
+.btn-secondary:hover{background:#00A859;color:#fff}
 
 /* MOBILE RESPONSIVE */
 @media(max-width:768px){
-nav ul{display:none;flex-direction:column;gap:10px;background:rgba(0,0,0,0.95);position:absolute;top:60px;right:0;width:200px;padding:20px;border-radius:0 0 0 8px}
-.hamburger{display:flex}
-.hero h1{font-size:2rem}
-.hero p{font-size:1rem}
-.hero button{width:100%;max-width:300px}
-.stats{flex-direction:column;gap:25px}
-.grid-3,.grid-4{grid-template-columns:1fr}
-section{padding:70px 15px}
+  .hero-overlay h1{font-size:2rem}
+  .hero-overlay p{font-size:1rem}
+  .hero-buttons{flex-direction:column;gap:10px}
+  .hero-buttons button{width:100%;max-width:300px}
 }
-
-/* SMOOTH SCROLL */
-html{scroll-behavior:smooth}
 </style>
 </head>
 <body>
@@ -94,21 +78,62 @@ html{scroll-behavior:smooth}
 </ul>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-<div class="overlay"></div>
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+  <div class="swiper heroSwiper">
+    <div class="swiper-wrapper">
 
-<video src="hero-solar-hologram.mp4" autoplay muted loop playsinline class="active"></video>
-<video src="hero-solar-panels.mp4" autoplay muted loop playsinline></video>
-<video src="hero-smart-home.mp4" autoplay muted loop playsinline></video>
+      <!-- Slide 1: Solar Hologram -->
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/hero-solar-hologram.mp4" type="video/mp4">
+        </video>
+      </div>
 
-<div class="hero-content">
-<h1>Voltura Eco Energy</h1>
-<p>Powering Africa with Clean, Reliable & Smart Solar Solutions</p>
-<button onclick="location.href='#contact'">Get a Free Consultation</button>
-<button onclick="location.href='tel:07065024570'">Call 07065024570</button>
-</div>
+      <!-- Slide 2: Solar Panels -->
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/hero-solar-panels.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Slide 3: Smart Home UI -->
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/hero-smart-home.mp4" type="video/mp4">
+        </video>
+      </div>
+
+    </div>
+    <!-- Pagination Dots -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Overlay Text & Buttons -->
+  <div class="hero-overlay">
+    <h1>Voltura EcoEnergy</h1>
+    <p>Clean, reliable, and innovative energy solutions nationwide</p>
+    <div class="hero-buttons">
+      <a href="https://wa.me/2347065024570">
+        <button class="btn-primary">Get Consultation</button>
+      </a>
+      <a href="#career">
+        <button class="btn-secondary">Join Our Team</button>
+      </a>
+    </div>
+  </div>
 </section>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+var swiper = new Swiper(".heroSwiper", {
+  loop: true,
+  autoplay: { delay: 8000, disableOnInteraction: false },
+  effect: "fade",
+  pagination: { el: ".swiper-pagination", clickable: true },
+});
+</script>
 
 <!-- ABOUT -->
 <section id="about">
