@@ -3,38 +3,223 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Voltura Eco Energy</title>
+<title>Voltura Eco Energy | Solar & Smart Energy Solutions</title>
+<meta name="description" content="Voltura Eco Energy provides solar installation, inverter systems, smart home automation, CCTV and electrical solutions. 380+ projects completed. 9 years experience.">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#0f172a;color:#fff;text-align:center;overflow-x:hidden}
+section{padding:90px 20px;max-width:1100px;margin:auto}
+h1,h2,h3{margin-bottom:20px}
+p{line-height:1.8;max-width:850px;margin:auto}
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-  scroll-behavior: smooth;
+/* NAVIGATION */
+nav{
+position:fixed;top:0;width:100%;background:rgba(0,0,0,0.85);padding:15px;z-index:1000;display:flex;justify-content:space-between;align-items:center;
+}
+nav .logo{font-weight:700;font-size:1.2rem;color:#00e676}
+nav ul{display:flex;list-style:none;gap:15px;transition:all 0.3s ease;}
+nav ul li a{color:#fff;text-decoration:none;font-weight:500}
+nav ul li a:hover{color:#00e676}
+.hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px}
+.hamburger div{width:25px;height:3px;background:#fff}
+
+/* HERO */
+.hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero video{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s ease-in-out}
+.hero video.active{opacity:1}
+.overlay{position:absolute;width:100%;height:100%;background:rgba(0,0,0,0.65)}
+.hero-content{position:relative;z-index:2}
+.hero h1{font-size:3rem;font-weight:700;margin-bottom:10px}
+.hero p{font-size:1.2rem;margin-bottom:25px}
+.hero button{padding:12px 25px;border:none;background:#00e676;color:#000;font-weight:600;border-radius:6px;cursor:pointer;margin:5px;transition:0.3s}
+.hero button:hover{background:#00c853}
+
+/* STATS */
+.stats{display:flex;justify-content:center;flex-wrap:wrap;gap:40px;margin-top:40px}
+.stat h3{font-size:2.2rem;color:#00e676}
+
+/* GRID */
+.grid-3,.grid-4{display:grid;gap:30px}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.grid-4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:#1e293b;padding:25px;border-radius:12px;transition:0.3s}
+.card:hover{transform:translateY(-5px)}
+
+/* TESTIMONIAL */
+.testimonial{background:#1e293b;padding:20px;border-radius:10px;font-size:0.95rem;transition:0.3s}
+.testimonial:hover{transform:translateY(-3px)}
+
+/* CONTACT */
+.contact p{margin:10px 0}
+
+/* WHATSAPP */
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px 18px;border-radius:50%;font-size:22px;text-decoration:none;z-index:1000;}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+nav ul{display:none;flex-direction:column;gap:10px;background:rgba(0,0,0,0.95);position:absolute;top:60px;right:0;width:200px;padding:20px;border-radius:0 0 0 8px}
+.hamburger{display:flex}
+.hero h1{font-size:2rem}
+.hero p{font-size:1rem}
+.hero button{width:100%;max-width:300px}
+.stats{flex-direction:column;gap:25px}
+.grid-3,.grid-4{grid-template-columns:1fr}
+section{padding:70px 15px}
 }
 
-body {
-  background: #0f172a;
-  color: #fff;
-  text-align: center;
-}
+/* SMOOTH SCROLL */
+html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
 
-section {
-  padding: 80px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
+<nav>
+<div class="logo">Voltura EcoEnergy</div>
+<div class="hamburger" id="hamburger">
+<div></div>
+<div></div>
+<div></div>
+</div>
+<ul id="nav-links">
+<li><a href="#hero">Hero</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#sustainability">Sustainability</a></li>
+<li><a href="#career">Career</a></li>
+<li><a href="#testimonials">Testimonials</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
 
-h1, h2, h3 {
-  margin-bottom: 20px;
-}
+<!-- HERO -->
+<section class="hero" id="hero">
+<div class="overlay"></div>
 
-p {
-  line-height: 1.8;
-  max-width: 850px;
-  margin: auto;
+<video src="hero-solar-hologram.mp4" autoplay muted loop playsinline class="active"></video>
+<video src="hero-solar-panels.mp4" autoplay muted loop playsinline></video>
+<video src="hero-smart-home.mp4" autoplay muted loop playsinline></video>
+
+<div class="hero-content">
+<h1>Voltura Eco Energy</h1>
+<p>Powering Africa with Clean, Reliable & Smart Solar Solutions</p>
+<button onclick="location.href='#contact'">Get a Free Consultation</button>
+<button onclick="location.href='tel:07065024570'">Call 07065024570</button>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<h2>About Voltura</h2>
+<p>
+Voltura Eco Energy is a leading renewable energy and smart electrical solutions company with over 9 years of excellence.
+We have successfully completed more than 380 projects and proudly serve over 320 satisfied clients.
+Our expertise spans solar installations, inverter systems, smart home integration, CCTV surveillance, electrical wiring and maintenance, and energy audits nationwide.
+</p>
+<div class="stats">
+<div class="stat"><h3 id="projects">0</h3><p>Projects Completed</p></div>
+<div class="stat"><h3 id="years">0</h3><p>Years in Operation</p></div>
+<div class="stat"><h3 id="clients">0</h3><p>Happy Clients</p></div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+<h2>Our Services</h2>
+<div class="grid-3">
+<div class="card">Solar Panel Installation</div>
+<div class="card">Inverter & Battery Systems</div>
+<div class="card">CCTV Surveillance Systems</div>
+<div class="card">Smart Home Automation</div>
+<div class="card">Electrical Wiring & Maintenance</div>
+<div class="card">Energy Consultation & Audits</div>
+</div>
+</section>
+
+<!-- SUSTAINABILITY -->
+<section id="sustainability">
+<h2>Sustainability & Innovation</h2>
+<p>
+Solar energy eliminates dependence on unstable grid supply and expensive generators.
+Businesses that upgrade to solar drastically reduce operational costs and protect themselves from rising fuel prices.
+Voltura helps organizations transition to clean energy, reduce carbon emissions and protect the environment for future generations.
+</p>
+</section>
+
+<!-- CAREER -->
+<section id="career">
+<h2>Careers at Voltura</h2>
+<p>
+We train engineers, mentor technicians and employ professionals in renewable energy.
+Voltura provides referral bonuses and career development programs for top-performing individuals passionate about clean energy innovation.
+</p>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+<h2>What Our Clients Say</h2>
+<div class="grid-4">
+<div class="testimonial">“Voltura reduced our generator cost by 60% within months.”</div>
+<div class="testimonial">“Professional installation and timely delivery.”</div>
+<div class="testimonial">“Reliable inverter systems that never fail.”</div>
+<div class="testimonial">“Outstanding customer service.”</div>
+<div class="testimonial">“Smart home integration was seamless.”</div>
+<div class="testimonial">“Highly recommend Voltura for businesses.”</div>
+<div class="testimonial">“Clean and neat wiring execution.”</div>
+<div class="testimonial">“Great energy consultation advice.”</div>
+<div class="testimonial">“Affordable and efficient solar solutions.”</div>
+<div class="testimonial">“Trusted energy partner for our company.”</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+<h2>Contact Us</h2>
+<p>Email: Volturaeco@gmail.com</p>
+<p>Phone: 07065024570</p>
+<p>Benin Office: Saint Saviour Road, Benin City, Edo State</p>
+<p>Lagos Office: Egbeda, Lagos State</p>
+<p>Warri Office: Agbarho, Warri, Delta State</p>
+</section>
+
+<a href="https://wa.me/2347065024570" class="whatsapp">💬</a>
+
+<script>
+/* VIDEO SLIDER */
+const videos=document.querySelectorAll('.hero video');
+let index=0;
+setInterval(()=>{
+videos[index].classList.remove('active');
+index=(index+1)%videos.length;
+videos[index].classList.add('active');
+},5000);
+
+/* COUNTER */
+function animate(id,target){
+let count=0;
+let inc=target/100;
+let interval=setInterval(()=>{
+count+=inc;
+if(count>=target){count=target;clearInterval(interval);}
+document.getElementById(id).innerText=Math.floor(count)+"+";
+},20);
+}
+animate("projects",380);
+animate("years",9);
+animate("clients",320);
+
+/* HAMBURGER MENU */
+const hamburger=document.getElementById('hamburger');
+const navLinks=document.getElementById('nav-links');
+hamburger.addEventListener('click',()=>{
+navLinks.style.display=navLinks.style.display==='flex'?'none':'flex';
+});
+</script>
+
+</body>
+</html>  margin: auto;
 }
 
 nav {
