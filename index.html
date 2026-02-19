@@ -107,28 +107,38 @@ nav ul li a:hover { color: #00A859; }
 
 <!-- HERO SECTION -->
 <section class="hero" id="home">
+<section class="hero" id="home">
   <div class="swiper heroSwiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><video autoplay muted loop playsinline src="hero-solar-hologram.mp4"></video></div>
-      <div class="swiper-slide"><video autoplay muted loop playsinline src="hero-solar-panels.mp4"></video></div>
-      <div class="swiper-slide"><video autoplay muted loop playsinline src="hero-smart-home.mp4"></video></div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline>
+          <source src="hero-solar-hologram.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline>
+          <source src="hero-solar-panels.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline>
+          <source src="hero-smart-home.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
-    <div class="swiper-pagination"></div>
   </div>
 
-
-
-
-
-
-
-  
+  <!-- Overlay -->
   <div class="hero-overlay">
     <h1>Voltura EcoEnergy</h1>
     <p>Clean, reliable, and innovative energy solutions nationwide</p>
     <div class="hero-buttons">
-      <a href="https://wa.me/2347065024570"><button class="btn-primary">Get Consultation</button></a>
-      <a href="#career"><button class="btn-secondary">Join Our Team</button></a>
+      <a href="https://wa.me/2347065024570">
+        <button class="btn-primary">Get Consultation</button>
+      </a>
+      <a href="#career">
+        <button class="btn-secondary">Join Our Team</button>
+      </a>
     </div>
   </div>
 </section>
