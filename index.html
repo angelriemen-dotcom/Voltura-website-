@@ -56,7 +56,12 @@ nav ul li a:hover { color: #00A859; }
 .hero-overlay {
   z-index: 2;
 }
-.hero { min-height: 100vh; position: relative; }.hero video { 
+.hero { 
+  min-height: 100vh; 
+  position: relative; 
+  overflow: hidden; /* add this line */
+}
+.hero video { 
   position: absolute;
   top: 0;
   left: 0;
