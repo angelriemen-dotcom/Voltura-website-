@@ -1,40 +1,243 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Voltura EcoEnergy</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voltura EcoEnergy</title>
+
 <style>
-body {font-family: Arial; margin:0; background:#F5F7FA;}
-header {background:#0A1F44; color:white; padding:60px 20px; text-align:center;}
-button {background:#F4A300; border:none; padding:15px 25px; color:white; font-size:16px; cursor:pointer;}
-section {padding:50px 20px; text-align:center;}
-h2 {color:#0A1F44;}
-footer {background:#0A1F44; color:white; padding:20px; text-align:center;}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #333;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav img {
+  height: 50px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul li {
+  font-weight: bold;
+  color: #1E7D35;
+  cursor: pointer;
+}
+
+.hero {
+  background: linear-gradient(rgba(30,125,53,0.8), rgba(30,125,53,0.8)),
+  url('https://images.unsplash.com/photo-1509395176047-4a66953fd231');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.hero h1 {
+  font-size: 38px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+button {
+  background: #2BB24C;
+  border: none;
+  padding: 15px 30px;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+section {
+  padding: 80px 40px;
+  text-align: center;
+}
+
+h2 {
+  color: #1E7D35;
+  margin-bottom: 30px;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.tiktok-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.contact {
+  background: #1E7D35;
+  color: white;
+}
+
+footer {
+  background: #0f4f23;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 22px;
+  text-decoration: none;
+}
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>Powering Homes & Businesses with Clean, Reliable Solar Energy</h1>
-<p>Solar | Inverters | Batteries | CCTV | Electrical Wiring</p>
-<button>Get Free Consultation</button>
-</header>
+<nav>
+  <img src="logo.png" alt="Voltura Logo">
+  <ul>
+    <li>Home</li>
+    <li>About</li>
+    <li>Services</li>
+    <li>Projects</li>
+    <li>Contact</li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <h1>Sustainable Energy. Smart Solutions.</h1>
+  <p>Powering Homes, Businesses & Communities with Clean and Reliable Energy</p>
+  <a href="https://wa.me/2347065024570"><button>Get Free Consultation</button></a>
+</div>
 
 <section>
-<h2>About Voltura EcoEnergy</h2>
-<p>We provide affordable and sustainable power solutions across Nigeria.</p>
+  <h2>About Voltura EcoEnergy</h2>
+  <p>
+    Voltura EcoEnergy is a Nigerian clean energy company committed to delivering affordable,
+    sustainable, and innovative power solutions. We specialize in solar installations,
+    inverter systems, battery storage, CCTV security systems, and professional electrical wiring.
+  </p>
 </section>
 
 <section>
-<h2>Our Services</h2>
-<p>Solar Installation</p>
-<p>Inverters & Batteries</p>
-<p>CCTV Installation</p>
-<p>Electrical Wiring</p>
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card">
+      <h3>Solar Installation</h3>
+      <p>Residential and commercial solar systems, hybrid and off-grid solutions.</p>
+    </div>
+    <div class="card">
+      <h3>Inverters & Batteries</h3>
+      <p>High-performance inverters and reliable lithium battery storage systems.</p>
+    </div>
+    <div class="card">
+      <h3>CCTV Installation</h3>
+      <p>Smart surveillance systems for homes and corporate environments.</p>
+    </div>
+    <div class="card">
+      <h3>Electrical Wiring</h3>
+      <p>Professional wiring solutions for new constructions and renovations.</p>
+    </div>
+  </div>
 </section>
 
 <section>
+  <h2>Our Projects</h2>
+  <p>See some of our real installations and work on TikTok:</p>
+
+  <div class="tiktok-gallery">
+    <!-- TikTok Video 1 -->
+    <blockquote class="tiktok-embed"
+      cite="https://www.tiktok.com/@voltura.ecoenergy/video/7556949047018343691"
+      data-video-id="7556949047018343691"
+      style="max-width: 300px; min-width: 250px;">
+      <section></section>
+    </blockquote>
+
+    <!-- TikTok Video 2 -->
+    <blockquote class="tiktok-embed"
+      cite="https://www.tiktok.com/@voltura.ecoenergy/video/7556945536041913612"
+      data-video-id="7556945536041913612"
+      style="max-width: 300px; min-width: 250px;">
+      <section></section>
+    </blockquote>
+  </div>
+
+  <p style="margin-top:20px;">
+    View all projects on TikTok:  
+    <a href="https://www.tiktok.com/@voltura.ecoenergy" target="_blank" style="color:#2BB24C; font-weight:bold;">@voltura.ecoenergy</a>
+  </p>
+</section>
+
+<section>
+  <h2>Sustainability & Innovation</h2>
+  <p>
+    Voltura EcoEnergy is strategically positioned to expand into sustainable environmental
+    solutions including waste-to-energy and green innovation projects, contributing
+    to Nigeria’s clean energy transition and long-term environmental sustainability.
+  </p>
+</section>
+
+<section class="contact">
+  <h2>Contact Us</h2>
+  <p>📞 07065024570</p>
+  <p>💬 WhatsApp: 07065024570</p>
+  <p>📧 info@volturaecoenergy.com</p>
+</section>
+
+<footer>
+  <p>© 2026 Voltura EcoEnergy. All Rights Reserved.</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/2347065024570">💬</a>
+
+<script async src="https://www.tiktok.com/embed.js"></script>
+</body>
+</html><section>
 <h2>Why Choose Us?</h2>
 <p>Professional Installation | Transparent Pricing | After-Sales Support</p>
 </section>
