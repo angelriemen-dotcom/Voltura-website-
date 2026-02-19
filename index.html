@@ -5,36 +5,271 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Voltura EcoEnergy</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
-<!-- Swiper CSS for sliders -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
-
-<!-- AOS CSS for scroll animations -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
-
 <style>
-body {
-  margin:0;
-  font-family: 'Roboto', sans-serif;
-  color: #333;
-  scroll-behavior: smooth;
-}
-a { text-decoration: none; color: inherit; }
 
-nav {
-  position: sticky;
-  top:0;
-  display:flex;
-  justify-content: space-between;
-  align-items:center;
-  padding: 15px 50px;
-  background: white;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+body{
+  margin:0;
+  font-family:'Segoe UI', sans-serif;
+  color:#333;
+  scroll-behavior:smooth;
 }
-nav img { height:60px; }
+
+/* GLOBAL CONTAINER */
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 20px;
+  text-align:center;
+}
+
+/* NAVIGATION */
+nav{
+  position:fixed;
+  width:100%;
+  background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  padding:15px 0;
+  z-index:1000;
+}
+nav .container{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+}
+nav a{
+  color:#00A859;
+  font-weight:bold;
+}
+nav a:hover{
+  color:#007a40;
+}
+
+/* HERO */
+#hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+  url('https://images.unsplash.com/photo-1509395176047-4a66953fd231') center/cover;
+  color:white;
+  text-align:center;
+}
+#hero h1{
+  font-size:3.2rem;
+}
+#hero p{
+  font-size:1.4rem;
+}
+
+button{
+  padding:15px 30px;
+  background:#00A859;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:bold;
+  transition:0.3s;
+}
+button:hover{
+  background:#007a40;
+}
+
+/* SECTIONS */
+section{
+  padding:100px 0;
+}
+h2{
+  color:#00A859;
+  font-size:2.4rem;
+  margin-bottom:40px;
+}
+
+/* SERVICES */
+.services-grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
+}
+.service-card{
+  background:white;
+  padding:30px;
+  border-radius:12px;
+  width:260px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+.service-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* TESTIMONIALS */
+.testimonial{
+  max-width:700px;
+  margin:0 auto;
+  font-style:italic;
+  display:none;
+}
+.testimonial.active{
+  display:block;
+}
+.testimonial-name{
+  margin-top:15px;
+  font-weight:bold;
+}
+
+/* CONTACT */
+.contact p{
+  font-weight:bold;
+}
+
+/* FLOATING WHATSAPP BUTTON */
+.whatsapp-float{
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:#FFF;
+  border-radius:50%;
+  text-align:center;
+  font-size:30px;
+  box-shadow:2px 2px 10px rgba(0,0,0,0.3);
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  #hero h1{font-size:2.2rem;}
+  #hero p{font-size:1.1rem;}
+  nav .container{flex-wrap:wrap; gap:15px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="container">
+    <a href="#hero">Home</a>
+    <a href="#services">Services</a>
+    <a href="#careers">Careers</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <h1>Voltura EcoEnergy</h1>
+    <p>Clean, Reliable & Innovative Energy Solutions</p>
+    <br>
+    <a href="https://wa.me/2347065024570" target="_blank">
+      <button>Get Consultation</button>
+    </a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">Solar Product Sales</div>
+      <div class="service-card">Home & Business Automation</div>
+      <div class="service-card">Electrical Wiring</div>
+      <div class="service-card">Installations</div>
+      <div class="service-card">Pre-owned Solar Systems</div>
+      <div class="service-card">CCTV & Security Systems</div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREERS -->
+<section id="careers" style="background:#f0f9f5;">
+  <div class="container">
+    <h2>Careers at Voltura EcoEnergy</h2>
+    <p>We train engineers and employ skilled professionals across Nigeria. Our training programs cover solar systems, automation, and electrical solutions.</p>
+    <p>We operate a referral program with structured referral bonuses for successful hires.</p>
+    <br>
+    <a href="mailto:Volturaeco@gmail.com">
+      <button>Apply / Refer a Candidate</button>
+    </a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="container">
+    <h2>What Our Clients Say</h2>
+
+    <div class="testimonial active">
+      “Voltura delivered our solar system on time with exceptional professionalism.”
+      <div class="testimonial-name">– Chinedu A.</div>
+    </div>
+
+    <div class="testimonial">
+      “Excellent customer interaction and smooth installation.”
+      <div class="testimonial-name">– Funke O.</div>
+    </div>
+
+    <div class="testimonial">
+      “Top-quality products and reliable delivery service.”
+      <div class="testimonial-name">– Emeka J.</div>
+    </div>
+
+    <div class="testimonial">
+      “Their automation solution transformed our office completely.”
+      <div class="testimonial-name">– Aisha K.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:#f0f9f5;">
+  <div class="container contact">
+    <h2>Contact Us</h2>
+    <p>Phone / WhatsApp: 0706 502 4570</p>
+    <p>Email: Volturaeco@gmail.com</p>
+    <p>Lagos – Egbeda</p>
+    <p>Benin – Saint Saviour Road</p>
+    <p>Warri – Agbarho</p>
+    <br>
+    <a href="https://wa.me/2347065024570" target="_blank">
+      <button>Chat on WhatsApp</button>
+    </a>
+  </div>
+</section>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/2347065024570" class="whatsapp-float" target="_blank">
+  💬
+</a>
+
+<script>
+let testimonials = document.querySelectorAll(".testimonial");
+let current = 0;
+
+setInterval(()=>{
+  testimonials[current].classList.remove("active");
+  current = (current + 1) % testimonials.length;
+  testimonials[current].classList.add("active");
+}, 4000);
+</script>
+
+</body>
+</html>nav img { height:60px; }
 nav ul { list-style:none; display:flex; gap:30px; margin:0; padding:0; }
 nav ul li { font-weight:500; color:#333; cursor:pointer; transition:0.3s; }
 nav ul li:hover { color:#1E7D35; }
