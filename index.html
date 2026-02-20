@@ -18,7 +18,9 @@ body { background: #0f172a; color: #fff; overflow-x: hidden; line-height: 1.7; s
 section { padding: 80px 20px; max-width: 1200px; margin: auto; text-align: center; }
 h1,h2,h3 { margin-bottom: 20px; }
 p { max-width: 900px; margin: 0 auto 20px auto; }
-
+section {
+  scroll-margin-top: 100px;
+}
 /* NAVIGATION */
 nav {
   position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.85);
@@ -31,6 +33,12 @@ nav ul li a:hover { color: #00A859; }
 .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
 .hamburger div { width: 25px; height: 3px; background: #fff; }
 
+document.querySelectorAll('#nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.style.display = 'none';
+  });
+});
+  
 /* HERO SECTION */
   
   /* Make Swiper full height */
