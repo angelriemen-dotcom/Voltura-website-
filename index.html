@@ -18,9 +18,8 @@ body { background: #0f172a; color: #fff; overflow-x: hidden; line-height: 1.7; s
 section { padding: 80px 20px; max-width: 1200px; margin: auto; text-align: center; }
 h1,h2,h3 { margin-bottom: 20px; }
 p { max-width: 900px; margin: 0 auto 20px auto; }
-section {
-  scroll-margin-top: 100px;
-}
+section { scroll-margin-top: 100px; }
+
 /* NAVIGATION */
 nav {
   position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.85);
@@ -33,26 +32,253 @@ nav ul li a:hover { color: #00A859; }
 .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
 .hamburger div { width: 25px; height: 3px; background: #fff; }
 
-document.querySelectorAll('#nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.style.display = 'none';
-  });
-});
-  
 /* HERO SECTION */
-  
-  /* Make Swiper full height */
+.hero { min-height: 100vh; position: relative; overflow: hidden; }
 .hero .swiper,
 .hero .swiper-wrapper,
-.hero .swiper-slide {
-  height: 100%;
-}
+.hero .swiper-slide { height: 100%; }
+.hero video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1); transition: transform 8s ease-in-out; }
+.hero .swiper-slide-active video { transform: scale(1.05); }
 
-/* Dark cinematic overlay */
 .hero::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; color: #fff; font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+  max-width: 90%; padding: 0 20px; z-index: 2;
+}
+.hero-overlay h1 { font-size: 3rem; margin-bottom: 10px; }
+.hero-overlay p { font-size: 1.3rem; margin-bottom: 25px; }
+.hero-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+.hero-buttons button {
+  padding: 12px 25px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; margin: 5px;
+  transition: 0.4s;
+}
+.hero-buttons button:hover { transform: scale(1.05); }
+.btn-primary { background: #00A859; color: #fff; }
+.btn-primary:hover { background: #007f45; }
+.btn-secondary { background: #fff; color: #00A859; border: 2px solid #00A859; }
+.btn-secondary:hover { background: #00A859; color: #fff; }
+
+/* GRIDS & CARDS */
+.grid-3, .grid-4 { display: grid; gap: 30px; }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.card { 
+  background:#1e293b; padding:25px; border-radius:12px; transition:0.4s; 
+  text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+.card:hover { transform: translateY(-10px) scale(1.03); box-shadow:0 12px 25px rgba(0,0,0,0.5);}
+.card h3 { margin:10px 0; color:#00A859; font-size:1.2rem; }
+.card p { font-size:0.95rem; line-height:1.4; color:#d1d5db; }
+
+/* TESTIMONIALS */
+.testimonial { background: #1e293b; padding: 20px; border-radius: 10px; font-size: 0.95rem; transition: 0.3s; }
+.testimonial h4 { color: #00A859; margin-bottom: 5px; }
+.testimonial:hover { transform: translateY(-3px); }
+
+/* STATS */
+.stats { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; margin-top: 40px; }
+.stat h3 { font-size: 2rem; color: #00A859; margin-bottom: 5px; }
+
+/* CONTACT */
+.contact p { margin: 10px 0; }
+
+/* WHATSAPP BUTTON */
+.whatsapp {
+  position: fixed; bottom: 20px; right: 20px; background: #25D366; color: #fff;
+  padding: 15px 18px; border-radius: 50%; font-size: 22px; text-decoration: none; z-index: 1000;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+  nav .logo img { max-height: 40px; }
+  .hero-overlay h1 { font-size: 2rem; }
+  .hero-overlay p { font-size: 1rem; }
+  .hero-buttons { flex-direction: column; gap: 10px; }
+  .hero-buttons button { width: 100%; max-width: 300px; }
+  nav ul { display: none; flex-direction: column; gap: 10px; background: rgba(0,0,0,0.95);
+    position: absolute; top: 60px; right: 0; width: 200px; padding: 20px; border-radius: 0 0 0 8px; }
+  .hamburger { display: flex; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="logo"><img src="logo.png" alt="Voltura EcoEnergy"></div>
+  <ul id="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#sustainability">Sustainability</a></li>
+    <li><a href="#career">Career</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <div></div><div></div><div></div>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+  <div class="swiper heroSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline>
+          <source src="hero-solar-hologram.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline>
+          <source src="hero-solar-panels.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="swiper-slide">
+        <video autoplay muted loop playsinline>
+          <source src="hero-smart-home.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <div class="hero-overlay">
+    <h1>Voltura EcoEnergy</h1>
+    <p>Clean, reliable, and innovative energy solutions nationwide</p>
+    <div class="hero-buttons">
+      <a href="https://wa.me/2347065024570"><button class="btn-primary">Get Consultation</button></a>
+      <a href="#career"><button class="btn-secondary">Join Our Team</button></a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about">
+  <h2>About Voltura EcoEnergy</h2>
+  <p>Voltura EcoEnergy delivers clean energy and smart electrical solutions across Nigeria, with over 9 years of excellence, 380+ completed projects, and 320+ satisfied clients.</p>
+  <div class="stats">
+    <div class="stat"><h3 id="projects">0</h3><p>Projects Completed</p></div>
+    <div class="stat"><h3 id="years">0</h3><p>Years in Operation</p></div>
+    <div class="stat"><h3 id="clients">0</h3><p>Happy Clients</p></div>
+  </div>
+</section>
+
+<!-- SERVICES SECTION WITH ICONS -->
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="grid-3">
+    <div class="card">
+      <img src="icons/solar-panel.png" alt="Solar Panel" style="width:50px; margin-bottom:15px;">
+      <h3>Solar Panel Installation</h3>
+      <p>High-quality solar systems for homes and businesses to save energy and costs.</p>
+    </div>
+    <div class="card">
+      <img src="icons/battery.png" alt="Battery" style="width:50px; margin-bottom:15px;">
+      <h3>Inverter & Battery Systems</h3>
+      <p>Reliable energy storage solutions to ensure uninterrupted power supply.</p>
+    </div>
+    <div class="card">
+      <img src="icons/cctv.png" alt="CCTV" style="width:50px; margin-bottom:15px;">
+      <h3>CCTV Surveillance</h3>
+      <p>Advanced security camera systems to protect your property 24/7.</p>
+    </div>
+    <div class="card">
+      <img src="icons/home-automation.png" alt="Smart Home" style="width:50px; margin-bottom:15px;">
+      <h3>Smart Home Automation</h3>
+      <p>Automate lighting, security, and appliances for a modern lifestyle.</p>
+    </div>
+    <div class="card">
+      <img src="icons/wiring.png" alt="Electrical Wiring" style="width:50px; margin-bottom:15px;">
+      <h3>Electrical Wiring & Maintenance</h3>
+      <p>Professional wiring and maintenance services for homes and offices.</p>
+    </div>
+    <div class="card">
+      <img src="icons/consultation.png" alt="Energy Consultation" style="width:50px; margin-bottom:15px;">
+      <h3>Energy Consultation & Audits</h3>
+      <p>Expert guidance to optimize energy usage and reduce costs efficiently.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SUSTAINABILITY, CAREER, TESTIMONIALS, CONTACT -->
+<section id="sustainability">
+  <h2>Sustainability & Innovation</h2>
+  <p>Voltura EcoEnergy helps businesses and homes reduce energy costs, eliminate reliance on diesel generators, and cut carbon emissions while adopting clean, reliable solar solutions for a greener future.</p>
+</section>
+<section id="career">
+  <h2>Careers at Voltura EcoEnergy</h2>
+  <p>We train engineers, mentor technicians, and employ professionals in energy solutions. Benefit from referral bonuses, career development, and hands-on training in clean energy innovation.</p>
+</section>
+<section id="testimonials">
+  <h2>What Our Clients Say</h2>
+  <div class="swiper testimonialSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide testimonial"><h4>John Doe</h4><p>Excellent solar installation with timely delivery and great service.</p></div>
+      <div class="swiper-slide testimonial"><h4>Jane Smith</h4><p>Voltura team is professional, reliable, and their products are top-notch.</p></div>
+      <div class="swiper-slide testimonial"><h4>Michael A.</h4><p>Fast service, helpful support, and clean installations throughout.</p></div>
+      <div class="swiper-slide testimonial"><h4>Linda P.</h4><p>Customer-focused team, professional advice, and smooth installation.</p></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <p>Email: Volturaeco@gmail.com</p>
+  <p>Phone: +2347065024570</p>
+  <p>Benin City: Saint Saviour Road, Edo State</p>
+  <p>Lagos: Egbeda, Lagos State</p>
+  <p>Warri: Agbarho, Delta State</p>
+</section>
+
+<a href="https://wa.me/2347065024570" class="whatsapp">💬</a>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+var heroSwiper = new Swiper(".heroSwiper", {
+  loop:true,
+  autoplay:{delay:8000,disableOnInteraction:false},
+  effect:"fade",
+  pagination:{el:".swiper-pagination",clickable:true},
+});
+var testimonialSwiper = new Swiper(".testimonialSwiper", {
+  loop:true,
+  autoplay:{delay:7000,disableOnInteraction:false},
+  slidesPerView:1,
+  pagination:{el:".swiper-pagination",clickable:true},
+});
+
+// Animated Stats
+function animate(id,target){
+  let count=0, inc=target/100;
+  let interval=setInterval(()=>{
+    count+=inc;
+    if(count>=target){count=target; clearInterval(interval);}
+    document.getElementById(id).innerText=Math.floor(count)+"+";
+  },20);
+}
+animate("projects",380);
+animate("years",9);
+animate("clients",320);
+
+// Hamburger Toggle
+const hamburger=document.getElementById('hamburger');
+const navLinks=document.getElementById('nav-links');
+hamburger.addEventListener('click',()=>{ navLinks.style.display=navLinks.style.display==='flex'?'none':'flex'; });
+</script>
+
+</body>
+</html>
   left: 0;
   width: 100%;
   height: 100%;
